@@ -15,7 +15,7 @@
 			setTimeout(MQTTconnect, reconnectTimeout);
         }
 		function onMessageArrived(r_message){
-		out_msg="<b>"+r_message.payloadString+"</b><br>";
+		out_msg="<b>"+r_message.payloadString+" ℃</b><br>";
 		try{
 			document.getElementById("out_messages").innerHTML+=out_msg;
 		}
@@ -45,14 +45,18 @@
 	  </script>
    </head>
      <body>
-   <h1>norway/hovik/sea/temperature</h1>
+   
  	<script>
 	MQTTconnect();
 	</script>
 	
-	<div id="out_messages">
+	<div id="out_messages" style="font-size: 20px">	
 	</div>
+	     
 	
+	MQTT topic: norway/hovik/sea/temperature<br>
+	MQTT server: test.mosquitto.org
+	     
 	<noscript>Kunne ikke kjøre javascript. Sannsynligvis ble dette blokkert av nettleseren din.</noscript>
 	     
    </body>	
