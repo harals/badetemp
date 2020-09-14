@@ -6,12 +6,12 @@
 	 </script>
 	 <script type = "text/javascript" language = "javascript">
 		var mqtt;
-		var reconnectTimeout = 2000;
+		var reconnectTimeout = 10000;
 		var host="test.mosquitto.org";
 		var port=8081;
 		
 		function onFailure(message) {
-			console.log("Connection Attempt to Host "+host+"Failed");
+			console.log("Connection Attempt to Host "+host+" failed");
 			setTimeout(MQTTconnect, reconnectTimeout);
         }
 		function onMessageArrived(r_message){
@@ -32,8 +32,8 @@
 		console.log("connecting to "+ host +" "+ port);
 		mqtt = new Paho.MQTT.Client(host,port,"badetemp");
 		var options = {
-			timeout: 3,
-			useSSL: true,
+			timeout: 10,
+			useSSL: false,
 			onSuccess: onConnect,
 			onFailure: onFailure,
 			 };
@@ -50,12 +50,8 @@
 	MQTTconnect();
 	</script>
 	
-	<div id="out_messages" style="font-size: 20px">	
+	<div id="out_messages" style="font-size: 40px; color: blue; background-color: lightblue">	
 	</div>
-	     
-	
-	MQTT topic: norway/hovik/sea/temperature<br>
-	MQTT server: test.mosquitto.org
 	     
 	<noscript>Kunne ikke kjøre javascript. Sannsynligvis ble dette blokkert av nettleseren din.</noscript>
 	     
