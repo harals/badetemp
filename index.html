@@ -2,7 +2,7 @@
 
    <head>
       <title>norway/hovik/sea/temperature</title>
-      <link rel="icon" href="badetemp/favicon.ico" type="image/x-icon" />
+      <link rel="icon" href="favicon.ico" type="image/x-icon" />
       <script src="https://harals.github.io/badetemp/mqttws31.js" type="text/javascript"> </script>
 	 <script type = "text/javascript" language = "javascript">
 		var mqtt;
@@ -33,7 +33,7 @@
 		mqtt = new Paho.MQTT.Client(host,port,"badetemp");
 		var options = {
 			timeout: 10,
-			useSSL: false,
+			useSSL: true,
 			onSuccess: onConnect,
 			onFailure: onFailure,
 			 };
